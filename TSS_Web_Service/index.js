@@ -1,5 +1,9 @@
-var express = require('express');
-var app = express();
+var app = require('./config/server')
 
-app.set('view engine', 'ejs');
+var homeRoute = require('./app/routes/home');
+homeRoute(app);
+
+app.listen(3000, function(){
+    console.log("Server ON");
+});
 
