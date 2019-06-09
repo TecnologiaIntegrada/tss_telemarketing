@@ -1,0 +1,24 @@
+{
+  "name": "tss_web_service",
+  "version": "1.0.0",
+  "description": "TSS Webservice on NodeJS",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.1",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tss",
+    "nodejs",
+    "graphql"
+  ],
+  "author": "Marco Lima",
+  "license": "ISC"
+}
