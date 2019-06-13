@@ -24,35 +24,24 @@ namespace TSS_Support_Sytem.Model
 
         public static String URL_LOGIN { get { return "api/v1/users/login"; } }
 
-        public static Login DoLogin(String username, String password, String base_url)
+        public static User DoLogin(String username, String password, AppSettings appSettings)
         {
             try
             {
                 String postData = WebConnection.GeneratePostData(
                    new Argument() { name = "email", value = username },
-                   new Argument() { name = "password", value = password },
-                   new Argument() { name = "device", value = "WindowsPC" },
-                   new Argument() { name = "os", value = "Windows" },
-                   new Argument() { name = "latitude", value = "" },
-                   new Argument() { name = "longitude", value = "" }
+                   new Argument() { name = "password", value = password }
                 );
 
-                WebConnection doRequests = WebConnection.GetRequestsAsPost(PathUtils.Join(base_url, Login.URL_LOGIN), postData);
-                String content = doRequests.content;
-                Login login = Login.FromJson(content);
-                //login.name = name;
-                login.Container = doRequests.cookieContainer;
-                return login;
+                List<User> users = User.GetAllUsers(appSettings,
+                    String.Format("SELECT * FROM users u WHERE u.email='{0}' AND u.password='{1}'", username, password));
+                               
+                return users != null ? users.First() : null;
             }
             catch (Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
-
-            return new Login()
-            {
-                auth = false
-            };
         }
 
 

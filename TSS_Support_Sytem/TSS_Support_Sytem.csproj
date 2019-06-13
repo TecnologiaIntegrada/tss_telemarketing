@@ -92,6 +92,9 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.Ribbon35, Version=3.5.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Forms.Ribbon35.3.5.8.0\lib\net35\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -109,14 +112,37 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AppSettings.cs" />
     <Compile Include="Model\Archive.cs" />
     <Compile Include="Model\Argument.cs" />
+    <Compile Include="Model\DtConverter.cs" />
     <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\NodeResponse.cs" />
+    <Compile Include="Model\SuperModel.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AES.cs" />
+    <Compile Include="Security\AES256.cs" />
+    <Compile Include="Security\KoKo.cs" />
+    <Compile Include="Security\NodeCrypto.cs" />
+    <Compile Include="Security\TripleDES.cs" />
+    <Compile Include="Utils\NodeSQL.cs" />
     <Compile Include="Utils\PathUtils.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="Utils\WebConnection.cs" />
+    <Compile Include="Views\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +156,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Data\Settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -149,7 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="classes\" />
-    <Folder Include="Forms\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dialing-a-telephone-in-the-office-PZYMDLQ.jpg" />
@@ -158,6 +189,14 @@
     <Content Include="Data\app.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-select-users-40.png" />
+    <None Include="Resources\icons8-select-users-401.png" />
+    <None Include="Resources\icons8-client-management-40.png" />
+    <None Include="Resources\icons8-property-script-40.png" />
+    <None Include="Resources\icons8-office-40.png" />
+    <None Include="Resources\icons8-microsoft-excel-40.png" />
+    <None Include="Resources\icons8-phone-40.png" />
+    <Content Include="Updates.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
