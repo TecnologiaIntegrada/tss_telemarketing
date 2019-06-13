@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TSS_Support_Sytem.Model;
+using TSS_Support_Sytem.Utils;
 
 namespace TSS_Support_Sytem
 {
@@ -16,7 +18,8 @@ namespace TSS_Support_Sytem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            AppSettings appSettings = AppSettings.FromJson(Archive.ReadFile(PathUtils.ToCurrentLocation(@"\Data\Settings.json")));
+            Application.Run(new frmLogin(appSettings));
         }
     }
 }

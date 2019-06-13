@@ -12,6 +12,7 @@ consign()
     .include('app/routes')
     .then('config/conn.js')
     .then('app/models')
+    .then('app/modules')
     .into(app);
 
 module.exports = app;
